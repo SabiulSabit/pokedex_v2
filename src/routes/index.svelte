@@ -1,3 +1,7 @@
+<script>
+	import PokemonCard from '../lib/pokemonCard.svelte'
+</script>
+
 <script context="module" lang="ts">
 	export const prerender = true;
 
@@ -9,8 +13,6 @@
 	});
 
 	//console.log(pokemons);
-	
-
 </script>
 
 
@@ -22,10 +24,12 @@
 <h1 class="text-4xl text-center my-8 uppercase">Welcome to Pokedex</h1>
 
 <section>
-
-	{#each pokemons as {name, id, image}}
-		<p >{name}</p>
+    
+	<!-- Show Pokemon Information -->
+	{#each pokemons as p}
+		<PokemonCard pokemon={p}/>
 	{/each}
+	<!-- Show Pokemon Information -->
 </section>
 
 <style>
