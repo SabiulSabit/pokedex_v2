@@ -2,7 +2,7 @@
   export const prerender = true;
 
   export async function load() {
-    const limit = 100;
+    const limit = 10;
     const api = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
     
     //commect with api
@@ -38,6 +38,7 @@
       filteredData = pokemon.filter((p) =>
         p.name.toLowerCase().includes(searchKey.toLowerCase())
       );
+      
     } else {
       // if search key is empty
       filteredData = [...pokemon];
@@ -49,7 +50,7 @@
   <title>Home</title>
 </svelte:head>
 
-<h1 class="text-4xl text-center my-8 uppercase">Welcome to Pokedex</h1>
+<h1 class="text-4xl text-center my-8 uppercase">Welcome to Pokedex {searchKey}</h1>
 
 <input
   bind:value={searchKey}
